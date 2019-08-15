@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <Test />
+    <Movies />
   </div>
 </template>
 
 <script>
-import Test from './components/Test.vue';
+import Movies from './components/Movies.vue';
 
 export default {
   name: 'app',
   components: {
-    Test
+    Movies
   }
 };
 </script>
