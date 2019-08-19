@@ -23,6 +23,7 @@ export default {
     cursor: pointer;
     border: none;
     margin: .5rem;
+    outline: none;
   }
 
   .button:hover {
