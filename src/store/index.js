@@ -8,21 +8,21 @@ export const store = new Vuex.Store({
      * movies is array of objects 'movie'
      * movie: { name: String , year: Number }
      */
-    movies: null,
+    movies: [],
   },
   getters: {
     MOVIES: state => state.movies,
   },
   mutations: {
     SET_MOVIES: (state, payload) => {
-      state.movies = payload;
+      state.movies = [ ...state.movies, payload ];
     },
   },
   actions: {
     GET_MOVIES: async (context, payload) => {
-      const data = await fetch('<url>');
+      // const data = await fetch('<url>');
 
-      context.commit('SET_MOVIES', data);
+      context.commit('SET_MOVIES', payload);
     },
   },
 });
