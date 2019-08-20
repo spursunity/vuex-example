@@ -1,5 +1,5 @@
 <template>
-  <button class="button" type="button">
+  <button class="button" type="button" @click="onClick">
     {{ text }}
   </button>
 </template>
@@ -9,6 +9,7 @@ export default {
   name: 'Button',
   props: {
     text: String,
+    onClick: Function,
   },
 }
 </script>
