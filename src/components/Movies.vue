@@ -6,8 +6,8 @@
       <Button :text="nameBtn" :onClick="getMovieByName" />
     </div>
     <div class="block">
-      <Input :hint="placeholders.year" />
-      <Input :hint="placeholders.name" />
+      <Input :hint="placeholders.year" :onChange="setInputMovieYear" />
+      <Input :hint="placeholders.name" :onChange="setInputMovieName" />
     </div>
     <Results />
   </div>
@@ -41,15 +41,30 @@ export default {
   computed: {},
   methods: {
     getOlderMovies() {
-      this.$store.dispatch('GET_MOVIES', { name: 'rock', year: 2000 });
+      const year = this.$store.getters.INPUT_YEAR;
+      const payload = { order: 0, year };
+
+      this.$store.dispatch('GET_MOVIES', payload);
     },
     getNewerMovies() {
-      console.log(this.$store.getters.MOVIES);
-      console.log('hi');
-      this.$store.dispatch('GET_MOVIES', 'button newer');
+      const year = this.$store.getters.INPUT_YEAR;
+
+      this.$store.dispatch('GET_MOVIES', { order: 1, year });
     },
     getMovieByName() {
-      this.$store.dispatch('GET_MOVIES', 'button name');
+      const name = this.$store.getters.INPUT_NAME;
+
+      this.$store.dispatch('GET_MOVIES', { name });
+    },
+    setInputMovieName(e) {
+      const { value } = e.target;
+
+      this.$store.commit('SET_INPUT_NAME', value);
+    },
+    setInputMovieYear(e) {
+      const { value } = e.target;
+
+      this.$store.commit('SET_INPUT_YEAR', value);
     },
   },
 }
