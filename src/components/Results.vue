@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     movies() {
-      return this.$store.getters.MOVIES || []
+      return this.$store.getters.MOVIES || [];
     },
   },
 }
