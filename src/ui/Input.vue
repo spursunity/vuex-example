@@ -1,12 +1,13 @@
 <template>
-  <input class="text-field" type="text" :placeholder="hint">
+  <input class="text-field" type="text" :placeholder="hint" @input="onChange">
 </template>
 
 <script>
 export default {
   name: 'Input',
   props: {
-    hint: String
+    hint: String,
+    onChange: Function,
   },
 }
 </script>
