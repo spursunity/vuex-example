@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import config from '../config/config.js';
+import newModule from './modules/newModule.js';
 
 Vue.use(Vuex);
 export const store = new Vuex.Store({
@@ -48,5 +49,8 @@ export const store = new Vuex.Store({
       }
       console.log(response);
     },
+  },
+  modules: {
+    newModule,
   },
 });
