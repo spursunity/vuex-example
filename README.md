@@ -1,1 +1,1 @@
-# vue + koa + mongoose
+# Vue app with vuex
